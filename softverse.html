@@ -50,7 +50,7 @@
     height:72px;
   }
   .brand{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.15rem;display:flex;align-items:center;gap:10px;}
-  .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px rgba(91,141,239,0.18);}
+  .brand img{width:48px;height:48px;object-fit:contain;border-radius:50%;flex:none;}
   .nav-links{display:flex;gap:36px;font-size:0.92rem;color:var(--muted);}
   .nav-links a:hover{color:var(--text);}
   .nav-cta{
@@ -240,6 +240,36 @@
   .cta-section h2{font-size:2.3rem;font-weight:700;margin-bottom:18px;}
   .cta-section p{color:var(--muted);max-width:50ch;margin:0 auto 36px;}
   .cta-buttons{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+  .review-card{
+    max-width:760px;margin:0 auto;background:var(--surface);
+    border:1px solid var(--line);border-radius:var(--radius-m);
+    padding:32px;text-align:center;
+  }
+  .review-card .review-mark{font-family:'Space Grotesk';font-size:2rem;color:var(--blue);line-height:1;}
+  .review-card h3{font-size:1.15rem;margin:14px 0 8px;}
+  .review-card p{color:var(--muted);font-size:0.96rem;margin-bottom:20px;}
+  .contact-form{
+    max-width:680px;margin:0 auto;text-align:left;
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:var(--radius-m);padding:32px;
+  }
+  .contact-form .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .contact-form .field{display:flex;flex-direction:column;gap:7px;margin-bottom:18px;}
+  .contact-form label{font-size:0.88rem;font-weight:600;}
+  .contact-form input,.contact-form select,.contact-form textarea{
+    width:100%;padding:12px 14px;border:1px solid var(--line);
+    border-radius:var(--radius-s);background:var(--ink);color:var(--text);
+    font:inherit;font-size:0.94rem;
+  }
+  .contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{
+    outline:2px solid var(--blue);outline-offset:1px;
+  }
+  .contact-form textarea{min-height:140px;resize:vertical;}
+  .contact-form select:invalid{color:var(--muted);}
+  .contact-form .submit-button{
+    width:100%;border:0;cursor:pointer;font:inherit;font-weight:600;
+  }
+  .contact-form .form-note{font-size:0.82rem;color:var(--muted);margin:14px 0 0;text-align:center;}
 
   footer{
     padding:36px 0;border-top:1px solid var(--line);
@@ -247,6 +277,7 @@
     color:var(--muted);font-size:0.86rem;
   }
   footer .brand{font-size:1rem;}
+  footer .brand img{width:42px;height:42px;}
 
   @media (max-width:860px){
     .nav-links{display:none;}
@@ -261,6 +292,11 @@
     .process-step:last-child{border-bottom:none;}
     footer{flex-direction:column;gap:10px;text-align:center;}
     .hero-stats{gap:24px;flex-wrap:wrap;}
+    .contact-form{padding:24px;}
+  }
+  @media (max-width:560px){
+    .contact-form .form-grid{grid-template-columns:1fr;gap:0;}
+    .review-card{padding:24px;}
   }
 </style>
 </head>
@@ -268,12 +304,13 @@
 
 <nav>
   <div class="wrap">
-    <div class="brand"><span class="dot"></span>SoftVerse Technologies</div>
+    <div class="brand"><img src="softverse-logo.png" alt="SoftVerse Technologies logo">SoftVerse Technologies</div>
     <div class="nav-links">
       <a href="#positioning">Positioning</a>
       <a href="#services">Services</a>
       <a href="#pricing">Pricing</a>
       <a href="#process">Process</a>
+      <a href="#reviews">Reviews</a>
       <a href="#founder">Founder</a>
     </div>
     <a href="https://wa.me/917838797631?text=Hi%20SoftVerse%20Technologies%2C%20I%20want%20to%20build%20a%20website%20or%20app%20for%20my%20business." class="nav-cta" target="_blank" rel="noopener">Start a project</a>
@@ -461,6 +498,21 @@
   </div>
 </section>
 
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Client reviews</h2>
+      <p>Good work deserves honest feedback. We only publish client reviews with their permission.</p>
+    </div>
+    <div class="review-card">
+      <div class="review-mark" aria-hidden="true">“</div>
+      <h3>Be the first to share your experience</h3>
+      <p>Have worked with SoftVerse Technologies? Tell us what went well and what we could do better. Your feedback helps us improve and may be featured here with your permission.</p>
+      <a href="#contact" class="btn-secondary">Share your feedback</a>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="founder" style="border-bottom:none;">
   <div class="wrap">
     <div class="section-head">
@@ -481,20 +533,62 @@
 <section class="cta-section" id="contact">
   <div class="wrap">
     <h2>Have a project in mind?</h2>
-    <p>Tell us what you're trying to build. You'll hear back within one working day with next steps.</p>
-    <div class="cta-buttons">
-      <a href="mailto:ankushtech43@gmail.com" class="btn-primary">ankushtech43@gmail.com</a>
-      <a href="https://wa.me/917838797631?text=Hi%20SoftVerse%20Technologies%2C%20I%20want%20to%20build%20a%20website%20or%20app%20for%20my%20business." class="btn-secondary" target="_blank" rel="noopener">WhatsApp: +91 78387 97631</a>
-    </div>
+    <p>Share a few details and we’ll get back to you. You can also email <a href="mailto:ankushtech43@gmail.com">ankushtech43@gmail.com</a>.</p>
+    <form class="contact-form" id="contact-form">
+      <div class="form-grid">
+        <div class="field">
+          <label for="contact-name">Your name</label>
+          <input id="contact-name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="contact-email">Email address</label>
+          <input id="contact-email" name="email" type="email" autocomplete="email" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="contact-service">What do you need?</label>
+        <select id="contact-service" name="service" required>
+          <option value="" disabled selected>Select a service</option>
+          <option>Website or landing page</option>
+          <option>Web app or online store</option>
+          <option>Ongoing development</option>
+          <option>Something else</option>
+          <option>Client feedback / review</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="contact-message">Your message</label>
+        <textarea id="contact-message" name="message" rows="5" required></textarea>
+      </div>
+      <button class="btn-primary submit-button" type="submit">Continue to WhatsApp</button>
+      <p class="form-note">Your message will open in WhatsApp, where you can review and send it. We don't store form submissions on this website.</p>
+    </form>
   </div>
 </section>
 
 <footer>
   <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;width:100%;">
-    <div class="brand">SoftVerse Technologies</div>
-    <div>ankushtech43@1gmail.com &nbsp;·&nbsp; WhatsApp: +91 78387 97631</div>
+    <div class="brand"><img src="softverse-logo.png" alt="SoftVerse Technologies logo">SoftVerse Technologies</div>
+    <div><a href="mailto:ankushtech43@gmail.com">ankushtech43@gmail.com</a> &nbsp;·&nbsp; WhatsApp: +91 78387 97631</div>
   </div>
 </footer>
+
+<script>
+  document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const message = [
+      "Hi SoftVerse Technologies, I'd like to get in touch.",
+      "",
+      "Name: " + formData.get("name"),
+      "Email: " + formData.get("email"),
+      "Interested in: " + formData.get("service"),
+      "",
+      "Message: " + formData.get("message")
+    ].join("\n");
+    window.location.href = "https://wa.me/917838797631?text=" + encodeURIComponent(message);
+  });
+</script>
 
 </body>
 </html>
