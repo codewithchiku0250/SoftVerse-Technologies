@@ -180,6 +180,18 @@
   .service-row h3{font-size:1.2rem;margin-bottom:8px;}
   .service-row p{color:var(--muted);font-size:0.96rem;max-width:52ch;}
 
+  /* BRAND VIDEO */
+  .brand-video-section{text-align:center;}
+  .brand-video-section .section-head{margin-right:auto;margin-left:auto;}
+  .brand-video-frame{
+    max-width:340px;margin:0 auto;padding:10px;
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-m);
+  }
+  .brand-video-frame video{
+    display:block;width:100%;height:auto;max-height:680px;object-fit:contain;
+    background:var(--ink);border-radius:var(--radius-s);
+  }
+
   /* PRICING */
   .pricing-grid{
     display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
@@ -481,6 +493,21 @@
         <h3>MVP development</h3>
         <p>A working first version of your product — enough to put in front of real users and investors, without a year of engineering time behind it.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="section brand-video-section" aria-labelledby="brand-video-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="brand-video-title">SoftVerse in motion</h2>
+      <p>Watch our logo animation.</p>
+    </div>
+    <div class="brand-video-frame">
+      <video controls playsinline preload="metadata" poster="softverse-logo.png">
+        <source src="softverse-logo-animation.mp4" type="video/mp4">
+        Your browser does not support video playback.
+      </video>
     </div>
   </div>
 </section>
